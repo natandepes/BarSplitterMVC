@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <None Remove="Views\Mesa\" />
+    <None Remove="src\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Mesa\" />
+    <Folder Include="src\" />
   </ItemGroup>
 </Project>
