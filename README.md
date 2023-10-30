@@ -1,4 +1,0 @@
-# BarSplitterMVC
-
-
-Teste
