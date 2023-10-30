@@ -3,8 +3,8 @@ namespace BarSplitterMVC.Models
 {
 	public class Mesa
 	{
-		public string nome { get; set; }
-		public int  numero { get; set; }
-    }
+		public string Id { get; set; }
+		public double ValorTotal { get; set; }
+	}
 }
 
