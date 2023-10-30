@@ -70,9 +70,9 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="[https://github.com/Alemgf](https://media.licdn.com/dms/image/C4D03AQEpu-zZPL-kZA/profile-displayphoto-shrink_400_400/0/1650052876676?e=1704326400&v=beta&t=Tbo6spxxEwiOa9Dz14hzU6HP2UwTWs26RTqMVGas1vU)" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="[[https://github.com/Alemgf](https://media.licdn.com/dms/image/C4D03AQEpu-zZPL-kZA/profile-displayphoto-shrink_400_400/0/1650052876676?e=1704326400&v=beta&t=Tbo6spxxEwiOa9Dz14hzU6HP2UwTWs26RTqMVGas1vU)](https://github.com/natandepes/BarSplitterMVC/blob/master/src/lucasandre.jpeg?raw=true)" width="100px;" alt="Foto do Lucas andré"/><br>
         <sub>
-          <b>Iuri Silva</b>
+          <b>Lucas André</b>
         </sub>
       </a>
     </td>
