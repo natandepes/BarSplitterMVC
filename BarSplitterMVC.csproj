@@ -12,7 +12,4 @@
   <ItemGroup>
     <Folder Include="Views\Mesa\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Views\Mesa\Index.cshtml" />
-  </ItemGroup>
 </Project>
