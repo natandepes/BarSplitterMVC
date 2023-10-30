@@ -6,4 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Mesa\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Mesa\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Mesa\Index.cshtml" />
+  </ItemGroup>
 </Project>
