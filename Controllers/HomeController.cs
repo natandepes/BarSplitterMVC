@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace BarSplitterMVC.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -12,9 +13,14 @@ namespace BarSplitterMVC.Controllers
         {
             _logger = logger;
         }
-
+        // Metodo de acao que carrega home 
         public IActionResult Index()
         {
+            // Recebendo dados da pagina inicial
+            // Falta criar modelo de home para receber dados
+            Mesa mesa = new Mesa();
+            
+
             return View();
         }
 
