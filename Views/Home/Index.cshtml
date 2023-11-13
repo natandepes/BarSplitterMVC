@@ -1,7 +1,9 @@
-﻿@{
-    ViewData["Title"] = "Home ";
+﻿@model Home <!--Home  = Nome da classe criada na pasta model, M MINUSCULO-->
+
+@{
+    ViewData["Title"] = "Home Page ";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Seja bem vindo ao BarSplitter</h1>    
+    <h1 class="display-4">Seja bem vindo @Model.loginNome ao BarSplitte r</h1>
 </div>

@@ -17,10 +17,11 @@ namespace BarSplitterMVC.Controllers
         public IActionResult Index()
         {
             // Recebendo dados da pagina inicial
-            // Falta criar modelo de home para receber dados
-            Mesa mesa = new Mesa();
-            
+            Home home = new Home();
+            home.loginUsuario = "Frederico Pitol";
+            home.loginSenha = "123456";
 
+            // Retornando dados para a view
             return View();
         }
 
