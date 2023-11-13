@@ -12,8 +12,6 @@
     <None Remove="Views\Item\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Mesa\" />
     <Folder Include="src\" />
-    <Folder Include="Views\Item\" />
   </ItemGroup>
 </Project>
