@@ -7,16 +7,23 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BarSplitterMVC.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <style>
 
 
         /* Estilizacoes globais*/
         body {
-            background-color: #395366;
+            background-color: #1a557f;
+            font-family: 'Nunito', sans-serif;
         }
 
-        /*Logo NavBar*/
+        /*NavBar*/
+        .navlogin {
+         }
         
+
 
         /* Estilizacoes da home  */
         .card-header {
@@ -69,10 +76,7 @@
             margin-top: 30px;
         }
 
-        .button {
-        
-        }
-
+  
         .dashboard {
             background-color: #f8f9fa; /* Cor de fundo cinza claro */
             border-radius: 8px; /* Bordas arredondadas */
@@ -81,14 +85,14 @@
         }
 
         .logo {
-            width: 80px; /* Largura fixa para os logos */
-            height: 80px; /* Altura fixa para os logos */
-            background-color: #dee2e6; /* Cor de fundo para os espaços dos logos */
-            border-radius: 50%; /* Torna os logos circulares */
-            display: flex; /* Permite centralizar o conteúdo dentro do logo */
-            align-items: center; /* Centraliza verticalmente o conteúdo dentro do logo */
-            justify-content: center; /* Centraliza horizontalmente o conteúdo dentro do logo */
-            margin: 5px; /* Espaçamento ao redor dos logos */
+            width: 80px; 
+            height: 80px; 
+            background-color: #dee2e6; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 5px; 
         }
 
             .logo img {
@@ -129,11 +133,19 @@
                             <a class="nav-link text-black" asp-area="" asp-controller="Jogo" asp-action="Index">Jogo</a>
                         </li>
                     </ul>
-                <div class="ml-auto">
-                    <a class="nav-item nav-link" href="#">
-                    <img src="https://randomuser.me/api/portraits/men/75.jpg" width="40" height="40" class="rounded-circle" alt="User">
-                    </a>
-                </div>
+                    <div class="d-flex align-items-center ml-auto">
+                        <!-- Contêiner para a imagem e os links -->
+                        <div class="d-flex flex-column align-items-end mr-2">
+                            <!-- Links empilhados verticalmente com texto menor -->
+                            <a class="navlogin nav-link small" href="LINK_PARA_MINHA_CONTA">Minha Conta</a>
+                            <a class="navlogin nav-link small" href="LINK_PARA_LOGOUT">Log out</a>
+                        </div>
+                        <!-- Imagem do usuário -->
+                        <a class="nav-item" href="#">
+                            <img src="~/css/user.png" width="40" height="40" class="rounded-circle" alt="User">
+                        </a>
+                    </div>
+
                    
                 </div>
             </div>

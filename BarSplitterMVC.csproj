@@ -18,4 +18,14 @@
     <None Remove="src\" />
     <None Remove="Views\Item\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\src\alexandre.jpeg" />
+    <None Include="wwwroot\src\lia.jpeg" />
+    <None Include="wwwroot\src\lucasandre.jpeg" />
+    <None Include="wwwroot\src\lucasbraga.jpeg" />
+    <None Include="wwwroot\src\natandepes.jpeg" />
+    <None Include="wwwroot\src\poo2BarSplit 2-3 3.jpg" />
+    <None Include="wwwroot\css\user.png" />
+  </ItemGroup>
 </Project>
