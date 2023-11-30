@@ -50,6 +50,7 @@
         /* Estilização adicional se necessário */
 
         /* Estilizacoes da mesa */
+
        
 
         .main {
@@ -67,6 +68,32 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .button {
+        
+        }
+
+        .dashboard {
+            background-color: #f8f9fa; /* Cor de fundo cinza claro */
+            border-radius: 8px; /* Bordas arredondadas */
+            padding: 20px; /* Espaçamento interno */
+            margin-top: 20px; /* Espaçamento externo acima */
+        }
+
+        .logo {
+            width: 80px; /* Largura fixa para os logos */
+            height: 80px; /* Altura fixa para os logos */
+            background-color: #dee2e6; /* Cor de fundo para os espaços dos logos */
+            border-radius: 50%; /* Torna os logos circulares */
+            display: flex; /* Permite centralizar o conteúdo dentro do logo */
+            align-items: center; /* Centraliza verticalmente o conteúdo dentro do logo */
+            justify-content: center; /* Centraliza horizontalmente o conteúdo dentro do logo */
+            margin: 5px; /* Espaçamento ao redor dos logos */
+        }
+
+            .logo img {
+                max-width: 100%; /* Garante que a imagem não exceda o espaço do logo */
+                max-height: 100%;
+            }
 
 
     </style>
@@ -93,16 +120,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="Jogo" asp-action="Index">Jogo</a>
                         </li>
-                        <li>
-                  
-                        </li>
-
                     </ul>
-                    <div class="ml-auto">
-                        <a class="nav-item nav-link" href="#">
-                            <img src="https://via.placeholder.com/40" width="40" height="40" class="rounded-circle" alt="User">
-                        </a>
-                    </div>
+                <div class="ml-auto">
+                    <a class="nav-item nav-link" href="#">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" width="40" height="40" class="rounded-circle" alt="User">
+                    </a>
+                </div>
                    
                 </div>
             </div>
