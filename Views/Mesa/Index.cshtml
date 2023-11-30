@@ -29,13 +29,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6" id="quadrado-branco">
-            <h1 class="text-center">Listagem de Desenhos</h1>
-            <ul class="list-group">
-                <partial name="ListagemItens" model="Model"/>
-            </ul>
+            <h1 class="text-center">@ViewData["Title"]</h1>
+            <partial name="ListagemUsuarios" model="Model" />
+            <button class="btn btn-success add-user-btn">Adicionar Usuário</button>
         </div>
     </div>
 </div>
 
-   
-
+@section scripts
+{
+    <script>
+        // Adicione código JavaScript aqui, se necessário
+        // Por exemplo, para mostrar um modal ao clicar em "Adicionar Usuário"
+        document.querySelector('.add-user-btn').addEventListener('click', function () {
+            // Implemente a lógica para mostrar um modal ou realizar outra ação desejada
+            alert('Implemente a lógica para adicionar um usuário');
+        });
+    </script>
+}
