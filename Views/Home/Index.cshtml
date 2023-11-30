@@ -1,8 +1,101 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 0;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        .card-body {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* Espaçamento extra para os botões, se necessário */
+        .btn-dark {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Ajuste este estilo para corresponder ao seu logo */
+        .logo {
+            width: 50px; /* Ajuste conforme o tamanho do seu logo */
+            height: 50px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Estilização adicional se necessário */
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Logo e botões de ação -->
+        <div class="text-center mb-4">
+            <div class="logo d-inline-block">Logo</div>
+        </div>
+        <div class="row justify-content-around mb-4">
+            <button class="btn btn-dark col-3">Criar Mesa</button>
+            <button class="btn btn-dark col-3">Entrar Mesa</button>
+        </div>
+
+        <!-- Seção de explicação -->
+        <div class="row">
+            <div class="col-12">
+                <div class="bg-light p-4 mb-4">
+                    <h2>Explicando o funcionamento do site e dos jogos</h2>
+                    <p class="text-muted">
+                        <!-- Adicionar descricao do app -->
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards de jogos -->
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Jogo 1
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Descrição do jogo 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Jogo 2
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Descrição do jogo 2 </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Jogo 3
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Descrição do jogo 3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+                                                                                
