@@ -2,40 +2,89 @@
     ViewData["Title"] = "Mesa";
 }
 
-<style>
-
-    body{
-        background-color: #395366;
-    }
-
-    .main {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-    }
-
-    #quadrado-branco {
-        background-color: #FFFFFF;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Adicione estilos adicionais conforme necessário */
-</style>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6" id="quadrado-branco">
-            <h1 class="text-center">Listagem de Desenhos</h1>
-            <ul class="list-group">
-                <partial name="ListagemItens" model="Model"/>
-            </ul>
+            <h1 class="text-center">@ViewData["Title"]</h1>
+            <partial name="ListagemUsuarios" model="Model" />
+            <a class="btn btn-success add-user-btn">Adicionar Usuário</a>
         </div>
+        <div class="d-flex flex-row align-items-center mt-5 justify-content-center">
+     
+            <a href="@Url.Action("Index", "Jogo")" class="btn btn-primary rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
+                Iniciar Game
+            </a>
+
+            <button type="button" class="btn btn-danger rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
+                Fechar Conta
+            </button>
+
+            <button type="button" class="btn btn-warning rounded-circle mx-2" style="width: 100px; height: 100px;">
+                Fechar Parcial
+            </button>
+        </div>
+
+        <div class="dashboard">
+            <h2 class="text-center">INFORMAÇÕES DE CADA PARTICIPANTE</h2>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-4 info-box">
+                        <h4>Conta Parcial</h4>
+                        <p>[Valor da Conta Parcial]</p>
+                    </div>
+                    <div class="col-md-4 info-box">
+                        <h4>Participações em Jogos</h4>
+                        <p>[Número de Participações]</p>
+                    </div>
+                    <div class="col-md-4 info-box">
+                        <h4>Crédito Recebido</h4>
+                        <p>[Valor do Crédito]</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 info-box">
+                        <h4>Valor a Pagar</h4>
+                        <p>[Valor a Pagar]</p>
+                    </div>
+                    <div class="col-md-6 info-box">
+                        <h4>Valor Total</h4>
+                        <p>[Valor Total]</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="d-flex flex-row justify-content-center">
+                <div class="logo">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle" alt="User">
+                </div>
+                <div class="logo">
+                    <img src="https://randomuser.me/api/portraits/women/75.jpg" class="rounded-circle" alt="User">
+                </div>
+                <div class="logo">
+                    <img src="https://randomuser.me/api/portraits/men/34.jpg" class="rounded-circle" alt="User">
+                </div>
+                <div class="logo">
+                    <img src="https://randomuser.me/api/portraits/women/34.jpg" class="rounded-circle" alt="User">
+                 </div>
+                <div class="logo">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle" alt="User">
+                </div>
+                <div class="logo">
+                    <img src="https://randomuser.me/api/portraits/men/31.jpg" class="rounded-circle" alt="User">
+                </div>
+
+                
+            </div>
+           
+        </div>
+
     </div>
 </div>
 
-   
-
+@section scripts
+{
+    <script>
+       
+    </script>
+}

@@ -9,6 +9,10 @@ namespace BarSplitterMVC.Controllers
         public UsuarioController() { 
         }
 
+        public IActionResult CriarUsuario() 
+        {
+            return View();
+        }
         //public void PagarUsuario(decimal valor, Usuario quemRecebe)
         //{
         //    if (valor > 0 && valor <= Saldo)
