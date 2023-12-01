@@ -14,7 +14,7 @@ namespace BarSplitterMVC.Controllers
 		{
             mesa.Usuarios = new List<Usuario>
             {
-                new Usuario { Id = 1, Nome = "Natan", Admin = true, Conta = 0 },
+                new Usuario { Id = 1, Nome = "Natan", Admin = true, Conta = 0  },
                 new Usuario { Id = 2, Nome = "Fred", Admin = false, Conta = 0 },
                 new Usuario { Id = 3, Nome = "Lucas Bragança", Admin = true, Conta = 0 },
                 new Usuario { Id = 4, Nome = "Lia", Admin = true, Conta = 0 },
