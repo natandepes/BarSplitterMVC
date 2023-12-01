@@ -7,12 +7,13 @@
         <div class="col-md-6" id="quadrado-branco">
             <h1 class="text-center">@ViewData["Title"]</h1>
             <partial name="ListagemUsuarios" model="Model" />
-            <button class="btn btn-success add-user-btn">Adicionar Usuário</button>
+            <a class="btn btn-success add-user-btn">Adicionar Usuário</a>
         </div>
         <div class="d-flex flex-row align-items-center mt-5 justify-content-center">
-            <button type="button" class="btn btn-primary rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
+     
+            <a href="@Url.Action("Index", "Jogo")" class="btn btn-primary rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
                 Iniciar Game
-            </button>
+            </a>
 
             <button type="button" class="btn btn-danger rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
                 Fechar Conta
@@ -77,26 +78,6 @@
             </div>
            
         </div>
-        <div>
-            <div class="container mt-5">
-                <div class="card">
-                    <div class="card-header bg-primary text-black>
-                        <h5 class="mb-0">Quizz!</h5>
-                    </div>
-                    <div class="card-body bg-warning">
-                        <h6 class="card-title">Pergunta 1</h6>
-                        <div class="mb-3">
-                            <label for="playerInput" class="form-label">Jogador:</label>
-                            <input type="text" class="form-control" id="playerInput" placeholder="Nome do Jogador">
-                        </div>
-                        <button class="btn btn-secondary mb-3" id="answerButton">Resposta</button>
-                        <div class="reveal-answer">
-                            <label for="revealAnswer" class="form-label">O jogador <span id="playerName">[Nome do Jogador]</span> acertou?</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>
@@ -104,11 +85,6 @@
 @section scripts
 {
     <script>
-        // Adicione código JavaScript aqui, se necessário
-        // Por exemplo, para mostrar um modal ao clicar em "Adicionar Usuário"
-        document.querySelector('.add-user-btn').addEventListener('click', function () {
-            // Implemente a lógica para mostrar um modal ou realizar outra ação desejada
-            alert('Implemente a lógica para adicionar um usuário');
-        });
+       
     </script>
 }
