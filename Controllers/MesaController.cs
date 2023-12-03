@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using BarSplitterMVC.Models;
 using Microsoft.AspNetCore.Mvc; // importa do controller
 
@@ -24,6 +24,15 @@ namespace BarSplitterMVC.Controllers
 
         public IActionResult Index()
         {
+            return View(mesa); 
+        }
+
+        //[HttpPost]
+        //public IActionResult RealizarSoma(int numero1, int numero2)
+        //{
+        //    int resultado = numero1 + numero2;
+        //    return Json(new { Resultado = resultado });
+        //}
 
             return View(mesa);
         }
@@ -46,4 +55,3 @@ namespace BarSplitterMVC.Controllers
 
     }
 }
-
