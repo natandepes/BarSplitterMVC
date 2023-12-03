@@ -9,7 +9,7 @@ namespace BarSplitterMVC.Controllers
         public UsuarioController() { 
         }
 
-        public IActionResult CriarUsuario() 
+        public IActionResult Index() 
         {
             return View();
         }

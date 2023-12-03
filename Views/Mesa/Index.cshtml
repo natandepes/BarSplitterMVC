@@ -1,13 +1,65 @@
 ﻿@{
     ViewData["Title"] = "Mesa";
 }
+<style>
+
+    .telaTodaPopup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    }
+
+    .popup {
+        display:flex;
+        justify-content: space-evenly;
+        width: 20%;
+        height: 20%;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .botoes{
+        display: flex;
+        align-content:flex-start;
+        margin-left:0px;
+        padding-left:0px;
+    }
+</style>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6" id="quadrado-branco">
             <h1 class="text-center titlesMesa">@ViewData["Title"]</h1>
             <partial name="ListagemUsuarios" model="Model" class="subTitleMesa" />
-            <a class="btn btn-success add-user-btn">Adicionar Usuário</a>
+            <button class="btn btn-success add-user-btn" onclick="abrirPopup()">Adicionar Usuario</button>
+
+            <div class="telaTodaPopup" id="telaTodaPopup" style="display: none;">
+                <div class="popup">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nome do novo usuário..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="fecharPopup()">Adicionar</button>
+                    </div>
+
+
+                    <button style="margin-left:0px; padding-left:0px;"  class="btn btn-danger add-user-btn" onclick="fecharPopup()">
+                        Cancelar
+                    </button>
+
+                </div>
+            </div>
+
+            @* <a href="@Url.Action("Index", "Usuario")" class="btn btn-success add-user-btn">Adicionar Usuário</a> *@
         </div>
         <div class="d-flex flex-row align-items-center mt-5 justify-content-center">
 
@@ -95,6 +147,29 @@
 @section scripts
 {
     <script>
+        function abrirPopup() {
+            document.getElementById("telaTodaPopup").style.display = "block";
+        }
 
+        function fecharPopup() {
+            document.getElementById("telaTodaPopup").style.display = "none";
+        }
+
+
+        $(document).ready(function () {
+            $("#button-addon2").click(function () {
+                $.ajax({
+                    url: '/Mesa/AdicionarUsuario',
+                    type: 'POST',
+                    success: function () {
+                        alert("aaaaaaaaaaaaaaaaaaaaa deu bom");
+                        // Lógica adicional após o sucesso, se necessário
+                    },
+                    error: function () {
+                        alert('Erro ao chamar o método.');
+                    }
+                });
+            });
+        });
     </script>
 }
