@@ -5030,14 +5030,14 @@ textarea.form-control-lg {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
-.list-group-item:first-child {
+/*.list-group-item:first-child {
   border-top-right-radius: inherit;
   border-top-left-radius: inherit;
 }
 .list-group-item:last-child {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
-}
+}*/
 .list-group-item.disabled, .list-group-item:disabled {
   color: #6c757d;
   pointer-events: none;
