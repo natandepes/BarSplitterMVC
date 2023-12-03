@@ -24,15 +24,15 @@ namespace BarSplitterMVC.Controllers
 
         public IActionResult Index()
         {
-            var items = new List<Item>()
-            {
-                new Item() { Nome = "Heineken", Valor = 8 },
-                new Item() { Nome = "Coxinha", Valor = 5 }
-            };
-
-            return View(mesa);
+            return View(mesa); 
         }
 
+        //[HttpPost]
+        //public IActionResult RealizarSoma(int numero1, int numero2)
+        //{
+        //    int resultado = numero1 + numero2;
+        //    return Json(new { Resultado = resultado });
+        //}
     }
 }
 

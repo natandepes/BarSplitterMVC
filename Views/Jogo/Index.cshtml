@@ -1,14 +1,25 @@
 ﻿<div>
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header bg-primary text-black>
+            <div class="card-header bg-primary text-white">
                 <h5 class="mb-0">Quizz!</h5>
             </div>
             <div class="card-body bg-warning">
-                <h6 class="card-title">Pergunta 1</h6>
+                <h6 class="card-title">Pergunta <span id="questionNumber">1</span></h6>
                 <div class="mb-3">
                     <label for="playerInput" class="form-label">Jogador:</label>
                     <input type="text" class="form-control" id="playerInput" placeholder="Nome do Jogador">
+                </div>
+                <div class="question" style="display: none;">
+                    <label class="form-label" id="questionLabel">Qual é a sua resposta?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer" id="answerOption1" value="opcao1">
+                        <label class="form-check-label" for="answerOption1">Opção 1</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer" id="answerOption2" value="opcao2">
+                        <label class="form-check-label" for="answerOption2">Opção 2</label>
+                    </div>
                 </div>
                 <button class="btn btn-secondary mb-3" id="answerButton">Resposta</button>
                 <div class="reveal-answer">
@@ -18,3 +29,34 @@
         </div>
     </div>
 </div>
+
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            var questionNumber = 1;
+            var totalQuestions = 3; // Defina o número total de perguntas
+
+            $('#answerButton').click(function () {
+                var playerName = $('#playerInput').val();
+                $('#playerName').text(playerName);
+
+                if (questionNumber <= totalQuestions) {
+                    $('#questionNumber').text(questionNumber);
+                    $('#questionLabel').text('Qual é a sua resposta para a pergunta ' + questionNumber + '?');
+                    $('.question').show();
+                    $('.reveal-answer').hide();
+                    questionNumber++;
+                } else {
+                    // Se todas as perguntas foram respondidas, você pode redirecionar ou realizar outra ação
+                    alert('Quizz concluído!');
+                }
+            });
+
+            // Adicione um manipulador de eventos para processar a resposta
+            $('input[name="answer"]').change(function () {
+                // Aqui você pode processar a resposta, verificar se está correta, etc.
+            });
+        });
+    </script>
+}

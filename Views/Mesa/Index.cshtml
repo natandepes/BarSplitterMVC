@@ -1,4 +1,6 @@
-﻿@{
+﻿@model BarSplitterMVC.Models.Mesa
+
+@{
     ViewData["Title"] = "Mesa";
 }
 
@@ -11,9 +13,9 @@
         </div>
         <div class="d-flex flex-row align-items-center mt-5 justify-content-center">
      
-            <a href="@Url.Action("Index", "Jogo")" class="btn btn-primary rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
+            <button id="btnJogo" class="btn btn-primary rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
                 Iniciar Game
-            </a>
+            </button>
 
             <button type="button" class="btn btn-danger rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
                 Fechar Conta
@@ -23,6 +25,9 @@
                 Fechar Parcial
             </button>
         </div>
+
+        <button id="btnSoma">Calcular Soma</button>
+        <div id="resultadoSoma"></div>
 
         <div class="dashboard">
             <h2 class="text-center">INFORMAÇÕES DE CADA PARTICIPANTE</h2>
@@ -52,6 +57,8 @@
                     </div>
                 </div>
             </div>
+
+           
 
 
             <div class="d-flex flex-row justify-content-center">
@@ -85,6 +92,37 @@
 @section scripts
 {
     <script>
-       
+        $(document).ready(function () {
+            $('#btnSoma').click(function () {
+                $.ajax({
+                    url: '/Mesa/RealizarSoma',
+                    type: 'POST',
+                    data: { numero1: 5, numero2: 7 }, // Substitua pelos valores desejados
+                    success: function (result) {
+                        $('#resultadoSoma').text('Resultado: ' + result.resultado);
+                    },
+                    error: function () {
+                        alert('Erro ao realizar a soma.');
+                    }
+                });
+            });
+
+            //$('#btnJogo').click(function () {
+
+            //    var usersJson = @Json.Serialize(Model.Usuarios);
+
+            //    $.ajax({
+            //        url: '/Jogo/GetUsers',
+            //        type: 'POST',
+            //        data: { users: usersJson },
+            //        success: function (result) {
+            //            window.location.href = "/Jogo";
+            //        },
+            //        error: function () {
+            //            alert('Erro ao chamar o método GetUsers do JogoController.');
+            //        }
+            //    });
+            //});
+        });
     </script>
 }
