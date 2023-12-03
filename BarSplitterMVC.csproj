@@ -7,13 +7,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\NovaPasta\**" />
+    <Content Remove="Views\NovaPasta\**" />
+    <EmbeddedResource Remove="Views\NovaPasta\**" />
+    <None Remove="Views\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Usuario\FileName.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Usuario\FileName.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Views\Mesa\" />
     <None Remove="src\" />
     <None Remove="Views\Item\" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Views\Mesa\" />
-    <Folder Include="src\" />
-    <Folder Include="Views\Item\" />
+    <None Include="wwwroot\src\alexandre.jpeg" />
+    <None Include="wwwroot\src\lia.jpeg" />
+    <None Include="wwwroot\src\lucasandre.jpeg" />
+    <None Include="wwwroot\src\lucasbraga.jpeg" />
+    <None Include="wwwroot\src\natandepes.jpeg" />
+    <None Include="wwwroot\src\poo2BarSplit 2-3 3.jpg" />
+    <None Include="wwwroot\css\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
   </ItemGroup>
 </Project>
