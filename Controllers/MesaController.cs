@@ -27,16 +27,6 @@ namespace BarSplitterMVC.Controllers
             return View(mesa); 
         }
 
-        //[HttpPost]
-        //public IActionResult RealizarSoma(int numero1, int numero2)
-        //{
-        //    int resultado = numero1 + numero2;
-        //    return Json(new { Resultado = resultado });
-        //}
-
-            return View(mesa);
-        }
-
         public IActionResult CriarUsuario()
         {
             return View();
