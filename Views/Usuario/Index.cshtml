@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Criar Usuario";
+}
+
+<style>
+    .bodyFake {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0; /* Cor de fundo da página */
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    }
+
+    .popup {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<div class="bodyFake">
+
+    <button onclick="openPopup()">Abrir Pop-up</button>
+
+    <div class="overlay" id="overlay">
+        <div class="popup">
+            <label for="popupInput">Digite algo:</label>
+            <input type="text" id="popupInput">
+            <button onclick="closePopup()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+<div/>

@@ -1,54 +1,116 @@
 ﻿@{
     ViewData["Title"] = "Mesa";
 }
+<style>
+
+    .telaTodaPopup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    }
+
+    .popup {
+        display:flex;
+        justify-content: space-evenly;
+        width: 20%;
+        height: 20%;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .botoes{
+        display: flex;
+        align-content:flex-start;
+        margin-left:0px;
+        padding-left:0px;
+    }
+</style>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6" id="quadrado-branco">
-            <h1 class="text-center">@ViewData["Title"]</h1>
-            <partial name="ListagemUsuarios" model="Model" />
-            <a class="btn btn-success add-user-btn">Adicionar Usuário</a>
+            <h1 class="text-center titlesMesa">@ViewData["Title"]</h1>
+            <partial name="ListagemUsuarios" model="Model" class="subTitleMesa" />
+            <button class="btn btn-success add-user-btn" onclick="abrirPopup()">Adicionar Usuario</button>
+
+            <div class="telaTodaPopup" id="telaTodaPopup" style="display: none;">
+                <div class="popup">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nome do novo usuário..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="fecharPopup()">Adicionar</button>
+                    </div>
+
+
+                    <button style="margin-left:0px; padding-left:0px;"  class="btn btn-danger add-user-btn" onclick="fecharPopup()">
+                        Cancelar
+                    </button>
+
+                </div>
+            </div>
+
+            @* <a href="@Url.Action("Index", "Usuario")" class="btn btn-success add-user-btn">Adicionar Usuário</a> *@
         </div>
         <div class="d-flex flex-row align-items-center mt-5 justify-content-center">
-     
-            <a href="@Url.Action("Index", "Jogo")" class="btn btn-primary rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
+
+            <a href="@Url.Action("Index", "Jogo")" class="btn btn-primary rounded-circle mb-2 mx-2" style="width: 15%;height: 40px;">
                 Iniciar Game
             </a>
 
-            <button type="button" class="btn btn-danger rounded-circle mb-2 mx-2" style="width: 100px; height: 100px;">
+            <button type="button" class="btn btn-danger rounded-circle mb-2 mx-2" style="width: 15%;height: 40px;">
                 Fechar Conta
             </button>
 
-            <button type="button" class="btn btn-warning rounded-circle mx-2" style="width: 100px; height: 100px;">
+            <button type="button" class="btn btn-warning rounded-circle mx-2" style="width: 15%;height: 40px;">
                 Fechar Parcial
             </button>
         </div>
 
         <div class="dashboard">
-            <h2 class="text-center">INFORMAÇÕES DE CADA PARTICIPANTE</h2>
+            <h2 class="text-center titlesMesa">INFORMAÇÕES DE CADA PARTICIPANTE</h2>
             <div class="container mt-5">
                 <div class="row">
-                    <div class="col-md-4 info-box">
-                        <h4>Conta Parcial</h4>
-                        <p>[Valor da Conta Parcial]</p>
+                    <div class="col-md-4">
+                        <div class="info-box">
+                            <h4 class="subTitleMesa">Conta Parcial</h4>
+                            <p>[Valor da Conta Parcial]</p>
+                        </div>
                     </div>
-                    <div class="col-md-4 info-box">
-                        <h4>Participações em Jogos</h4>
-                        <p>[Número de Participações]</p>
+                    <div class="col-md-4">
+                        <div class="info-box">
+                            <h4>Participações em Jogos</h4>
+                            <p>[Número de Participações]</p>
+                        </div>
                     </div>
-                    <div class="col-md-4 info-box">
-                        <h4>Crédito Recebido</h4>
-                        <p>[Valor do Crédito]</p>
+                    <div class="col-md-4">
+                        <div class="info-box">
+                            <h4>Crédito Recebido</h4>
+                            <p>[Valor do Crédito]</p>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 info-box">
-                        <h4>Valor a Pagar</h4>
-                        <p>[Valor a Pagar]</p>
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <h4>Valor a Pagar</h4>
+                            <p>[Valor a Pagar]</p>
+                        </div>
                     </div>
-                    <div class="col-md-6 info-box">
-                        <h4>Valor Total</h4>
-                        <p>[Valor Total]</p>
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <h4>Valor Total</h4>
+                            <p>[Valor Total]</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +128,7 @@
                 </div>
                 <div class="logo">
                     <img src="https://randomuser.me/api/portraits/women/34.jpg" class="rounded-circle" alt="User">
-                 </div>
+                </div>
                 <div class="logo">
                     <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle" alt="User">
                 </div>
@@ -74,9 +136,9 @@
                     <img src="https://randomuser.me/api/portraits/men/31.jpg" class="rounded-circle" alt="User">
                 </div>
 
-                
+
             </div>
-           
+
         </div>
 
     </div>
@@ -85,6 +147,29 @@
 @section scripts
 {
     <script>
-       
+        function abrirPopup() {
+            document.getElementById("telaTodaPopup").style.display = "block";
+        }
+
+        function fecharPopup() {
+            document.getElementById("telaTodaPopup").style.display = "none";
+        }
+
+
+        $(document).ready(function () {
+            $("#button-addon2").click(function () {
+                $.ajax({
+                    url: '/Mesa/AdicionarUsuario',
+                    type: 'POST',
+                    success: function () {
+                        alert("aaaaaaaaaaaaaaaaaaaaa deu bom");
+                        // Lógica adicional após o sucesso, se necessário
+                    },
+                    error: function () {
+                        alert('Erro ao chamar o método.');
+                    }
+                });
+            });
+        });
     </script>
 }
