@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "ItensUsuario";
+}
+@model BarSplitterMVC.Models.Usuario
+
+<h3 class="subTitleMesa">Usuarios</h3>
+
+@if (Model != null && Model.Itens.Count() > 0)
+{
+    <ul class="list-group user-list">
+        @foreach (var item in Model.Itens)
+        {
+            <li class="list-group-item user-list-item">
+                <span>@item.Nome</span>
+                <!-- Adicione botões de ação aqui -->
+                <a class="btn btn-primary btn-sm " style="float: right;">R$@item.Valor</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No items to display</p>
+}
