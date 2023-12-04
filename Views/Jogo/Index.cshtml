@@ -14,11 +14,23 @@
                     <label class="form-label" id="questionLabel">Qual é a sua resposta?</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="answer" id="answerOption1" value="opcao1">
-                        <label class="form-check-label" for="answerOption1">Opção 1</label>
+                        <label class="form-check-label" for="answerOption1">Russia</label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="answer" id="answerOption2" value="opcao2">
-                        <label class="form-check-label" for="answerOption2">Opção 2</label>
+                        <label class="form-check-label" for="answerOption2">China</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer" id="answerOption2" value="opcao3">
+                        <label class="form-check-label" for="answerOption2">Canadá</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer" id="answerOption2" value="opcao4">
+                        <label class="form-check-label" for="answerOption2">Sibéria</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="answer" id="answerOption2" value="opcao5">
+                        <label class="form-check-label" for="answerOption2">Suiça</label>
                     </div>
                 </div>
                 <button class="btn btn-secondary mb-3" id="answerButton">Resposta</button>
@@ -33,20 +45,45 @@
 @section scripts
     {
     <script>
+
+
+        function switchCase(opcao) {
+            var pergunta;
+
+            switch (opcao) {
+                case 1:
+                    pergunta = "Qual é o pais com a temperatura média mais fria?";
+                    break;
+                case 2:
+                    pergunta = "Qual é o maior país?";
+                    break;
+                case 3:
+                    pergunta = "Qual é o país com maior população do mundo?";
+                    break;
+                default:
+                    pergunta = "Opção inválida.";
+                    break;
+            }
+            return pergunta;
+        }
+
         $(document).ready(function () {
+
             var questionNumber = 1;
-            var totalQuestions = 3; // Defina o número total de perguntas
+            
 
             $('#answerButton').click(function () {
                 var playerName = $('#playerInput').val();
                 $('#playerName').text(playerName);
 
-                if (questionNumber <= totalQuestions) {
+                if (questionNumber <= 3) {
+                    var pergunta = switchCase(questionNumber);
                     $('#questionNumber').text(questionNumber);
-                    $('#questionLabel').text('Qual é a sua resposta para a pergunta ' + questionNumber + '?');
+                    $('#questionLabel').text(pergunta);
                     $('.question').show();
                     $('.reveal-answer').hide();
                     questionNumber++;
+                    
                 } else {
                     // Se todas as perguntas foram respondidas, você pode redirecionar ou realizar outra ação
                     alert('Quizz concluído!');
