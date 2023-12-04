@@ -49,7 +49,7 @@
             <div class="telaTodaPopup" id="telaTodaPopup" style="display: none;">
                 <div class="popup">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nome do novo usuário..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input id="username" type="text" class="form-control" placeholder="Nome do novo usuário..." aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="fecharPopup()">Adicionar</button>
                     </div>
 
@@ -177,13 +177,22 @@
             //    });
             //});
 
+            $("#btnJogo").click(function () {
+                window.location.href = '/Jogo';
+            });
+
             $("#button-addon2").click(function () {
+                debugger;
+
+                var nomeUsuario = $("#username").val();
+
                 $.ajax({
                     url: '/Mesa/AdicionarUsuario',
                     type: 'POST',
+                    data: { nome: nomeUsuario },
                     success: function () {
-                        alert("Deu bom!");
-                        // Lógica adicional após o sucesso, se necessário
+                        alert("Opa! Usuário inserido!");
+                        location.reload();
                     },
                     error: function () {
                         alert('Erro ao chamar o método.');
