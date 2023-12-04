@@ -3,7 +3,8 @@ namespace BarSplitterMVC.Models
 {
 	public class Item
 	{
-		public string Nome { get; set; }
-		public double Valor { get; set; }	
+        public int Id { get; set; }
+        public string? Nome { get; set; }
+		public double? Valor { get; set; }	
 	}
 }

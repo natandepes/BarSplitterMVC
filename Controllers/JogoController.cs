@@ -1,30 +1,25 @@
-﻿using BarSplitterMVC.Models;
+﻿using BarSplitterMVC.Data;
+using BarSplitterMVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BarSplitterMVC.Controllers
 {
     public class JogoController : Controller
     {
+        private readonly Context _contextService;
 
-        Jogo jogo = new Jogo();
+        private Jogo jogo = new Jogo();
 
-        public JogoController() 
+        public JogoController(Context contextService) 
         {
-            jogo.Usuarios = new List<Usuario>
-            {
-                new Usuario { Id = 1, Nome = "Natan", Admin = true, Conta = 0 },
-                new Usuario { Id = 2, Nome = "Fred", Admin = false, Conta = 0 },
-                new Usuario { Id = 3, Nome = "Lucas Bragança", Admin = true, Conta = 0 },
-                new Usuario { Id = 4, Nome = "Lia", Admin = true, Conta = 0 },
-                new Usuario { Id = 5, Nome = "Lucas André", Admin = false, Conta = 0 }
-            };
+            _contextService = contextService;
         }
 
 
-        public IActionResult Index(List<Usuario>? users)
+        public async Task<IActionResult> Index()
         {
-
-            Console.WriteLine(users);
+            jogo.Usuarios = await _contextService.Usuario.ToListAsync();
 
             return View();
         }
