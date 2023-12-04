@@ -22,16 +22,13 @@
                     </div>
                 </div>
                 <button class="btn btn-secondary mb-3" id="answerButton">Resposta</button>
-                <div class="reveal-answer">
-                    <label for="revealAnswer" class="form-label">O jogador <span id="playerName">[Nome do Jogador]</span> acertou?</label>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
 @section scripts
-    {
+{
     <script>
         $(document).ready(function () {
             var questionNumber = 1;
@@ -45,7 +42,6 @@
                     $('#questionNumber').text(questionNumber);
                     $('#questionLabel').text('Qual é a sua resposta para a pergunta ' + questionNumber + '?');
                     $('.question').show();
-                    $('.reveal-answer').hide();
                     questionNumber++;
                 } else {
                     // Se todas as perguntas foram respondidas, você pode redirecionar ou realizar outra ação

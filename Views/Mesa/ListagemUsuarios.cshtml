@@ -7,15 +7,20 @@
     <ul class="list-group user-list">
         @foreach (var user in Model.Usuarios)
         {
-            var valor = user.Conta != null ? user.Conta : 0;
+            string valor = user.Conta != null ? String.Format("{0:0.##}", user.Conta) : "0,00";
             <li class="list-group-item user-list-item">
                 <span>@user.Nome</span>
                 <!-- Adicione botões de ação aqui -->
 
 
+                <form action="/Mesa/ExcluirUsuario" method="post" style="display: inline;">
+                    <input type="hidden" name="idUsuario" value="@user.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm rounded" style="float: right;">X</button>
+                </form>
                 <a class="btn btn-primary btn-sm rounded" style="float: right;">
                     R$@valor</a>
                 <a href="@Url.Action("ItensUsuario", "Usuario")" class="btn btn-warning btn-sm rounded" style="float: right;">Ver itens</a>
+                
             </li>
         }
     </ul>
@@ -23,4 +28,28 @@
 else
 {
     <p>No items to display</p>
+}
+
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", ".deleteUser", function () {
+                var idUsuario = $(this).data("idusuario");
+
+                $.ajax({
+                    url: '/Mesa/ExcluirUsuario',
+                    type: 'POST',
+                    data: { idUsuario: idUsuario },
+                    success: function () {
+                        alert("Opa! Usuário excluído!");
+                        location.reload();
+                    },
+                    error: function () {
+                        alert('Erro ao chamar o método.');
+                    }
+                });
+            });
+        });
+    </script>
 }

@@ -28,21 +28,29 @@ namespace BarSplitterMVC.Controllers
             return View(mesa); 
         }
 
-        public IActionResult CriarUsuario()
-        {
-            return View();
-        }
-
         [HttpPost]
         public async Task<IActionResult> AdicionarUsuario(string nome)
         {
             Usuario novoUsuario = new Usuario { Nome = nome, Admin = false};
 
-            await _contextService.AddAsync(novoUsuario);
+            await _contextService.Usuario.AddAsync(novoUsuario);
             await _contextService.SaveChangesAsync();
 
             return RedirectToAction("Index");
 
+        }
+
+        public async Task<IActionResult> ExcluirUsuario(int idUsuario)
+        {
+            var usuario = await _contextService.Usuario.FirstOrDefaultAsync(user => user.Id == idUsuario);
+                
+            _contextService.Usuario.Remove(usuario);
+
+                
+            await _contextService.SaveChangesAsync();
+            
+
+            return RedirectToAction("Index");
         }
 
     }
