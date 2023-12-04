@@ -1,0 +1,23 @@
+﻿
+@model List<Item>
+
+<h3 class="subTitleMesa">ItensMesa</h3>
+
+@if (Model != null && Model.Count() > 0)
+{
+    <ul class="list-group user-list">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item user-list-item">
+                <span>@item.Nome</span>
+
+                <!-- Adicione botões de ação aqui -->
+                <a class="btn btn-primary btn-sm " style="float: right;">R$@item.Valor</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No items to display</p>
+}

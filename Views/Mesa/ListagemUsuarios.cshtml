@@ -7,10 +7,15 @@
     <ul class="list-group user-list">
         @foreach (var user in Model.Usuarios)
         {
+            var valor = user.Conta != null ? user.Conta : 0;
             <li class="list-group-item user-list-item">
                 <span>@user.Nome</span>
                 <!-- Adicione botões de ação aqui -->
-                <button class="btn btn-primary btn-sm rounded" style="float: right;">Grupo +</button>
+
+
+                <a class="btn btn-primary btn-sm rounded" style="float: right;">
+                    R$@valor</a>
+                <a href="@Url.Action("ItensUsuario", "Usuario")" class="btn btn-warning btn-sm rounded" style="float: right;">Ver itens</a>
             </li>
         }
     </ul>
