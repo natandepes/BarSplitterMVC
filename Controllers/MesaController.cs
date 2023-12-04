@@ -1,29 +1,30 @@
 using System;
+using BarSplitterMVC.Data;
 using BarSplitterMVC.Models;
 using Microsoft.AspNetCore.Mvc; // importa do controller
+using Microsoft.EntityFrameworkCore;
 
 namespace BarSplitterMVC.Controllers
 {
 	//Precisa herdar da classe controller para funcionar
 	public class MesaController : Controller
 	{
+        private readonly Context _contextService;
 
-        Mesa mesa = new Mesa();
+        private Mesa mesa = new Mesa();
 
-		public MesaController()
+		public MesaController(Context contextService)
 		{
-            mesa.Usuarios = new List<Usuario>
-            {
-                new Usuario { Id = 1, Nome = "Natan", Admin = true, Conta = 0  },
-                new Usuario { Id = 2, Nome = "Fred", Admin = false, Conta = 0 },
-                new Usuario { Id = 3, Nome = "Lucas Bragança", Admin = true, Conta = 0 },
-                new Usuario { Id = 4, Nome = "Lia", Admin = true, Conta = 0 },
-                new Usuario { Id = 5, Nome = "Lucas André", Admin = false, Conta = 0 }
-            };
+            _contextService = contextService;
 		}
 
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
+            mesa = await _contextService.Mesa.FirstAsync();
+
+            mesa.Usuarios = await _contextService.Usuario.ToListAsync();
+
             return View(mesa); 
         }
 
@@ -33,13 +34,14 @@ namespace BarSplitterMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult AdicionarUsuario()
+        public async Task<IActionResult> AdicionarUsuario(string nome)
         {
-            var idGerado = mesa.Usuarios.Count > 0 ? mesa.Usuarios.Max(i => i.Id) + 1 : 1;
-            var novoUsuario = new Usuario { Id = idGerado, Nome = "FABAO", Admin = false, Conta = 0 };
-            mesa.Usuarios.Add(novoUsuario);
+            Usuario novoUsuario = new Usuario { Nome = nome, Admin = false};
 
-            return View("Index");
+            await _contextService.AddAsync(novoUsuario);
+            await _contextService.SaveChangesAsync();
+
+            return RedirectToAction("Index");
 
         }
 
